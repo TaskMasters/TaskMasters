@@ -1,7 +1,9 @@
 # TaskMasters
 Group Assignment for class
 
-<p>Ruben Gjerstad Eide : github.com/Wigglytoas</p> 
+<h1>Team Members:</h1>
+
+<p>Ruben Gjerstad Eide : github.com/Wigglytoes</p> 
 
 <p>Kristoffer Andersen : github.com/Shnomy</p>
 
