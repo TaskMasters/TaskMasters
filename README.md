@@ -1,6 +1,9 @@
 # TaskMasters
 Group Assignment for class
 
-<h2>Ruben Gjerstad Eide</h2>
+<p>Ruben Gjerstad Eide : github.com/Wigglytoas</p> 
 
-<h2>Kristoffer Andersen</h2>
+<p>Kristoffer Andersen : github.com/Shnomy</p>
+
+<p>Wanwisa Prathan : github.com/wanniprathan</p>
+
