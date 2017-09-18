@@ -7,5 +7,5 @@
 
 <ul>
     <li>Create/delete list items</li>
-        <li>hoi</li>
+        <ul><li>hoi</li></ul>
     <li>Reorder list items</li>
