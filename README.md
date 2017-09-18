@@ -9,3 +9,19 @@ Group Assignment for class
 
 <p>Wanwisa Prathan : github.com/wanniprathan</p>
 
+<h1>Roadmap</h1>
+    <ol>
+        <li>Create/delete list items</li>
+        <li>Multiple named lists</li>
+        <li>Deadlines</li>
+        <li>User accounts</li>
+        <li>User accounts</li>
+        <li>Sharable</li>
+        <li>Reorder</li>
+        <li>Tagging list items</li>
+        <li>Notifications</li>
+        <li>Reports</li>
+        <li>Notesbook</li>
+        <li>Metrics</li>
+    </ol>
+    
