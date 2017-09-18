@@ -9,6 +9,11 @@ Group Assignment for class
 
 <p>Wanwisa Prathan : github.com/wanniprathan</p>
 
+ <h1>Product description:</h1>
+    <h1>Product description:</h1>
+        <p>,amage tasks and projects with TaskMaster!</p>
+        <p>At home, At school, At work, Online, and across 2 platforms!</p>
+
 <h1>Roadmap:</h1>
     <ol>
         <li>Create/delete list items</li>
@@ -24,9 +29,4 @@ Group Assignment for class
         <li>Notesbook</li>
         <li>Metrics</li>
     </ol>
-    
-    <h1>Product description:</h1>
-    <h1>Product description:</h1>
-        <p>,amage tasks and projects with TaskMaster!</p>
-        <p>At home, At school, At work, Online, and across 2 platforms!</p>
     
