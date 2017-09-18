@@ -27,4 +27,9 @@
         <ul><li>Email notification with to-do points</li></ul>
     <li>Notifications</li>
         <ul><li>Email, push varning (phone)</li></ul>
-    <li></li>
+   
+<h1>Personal notes</h1>
+    <ul>
+        <li>Notebook</li>
+            <ul><li></li></ul>
+   </ul>
