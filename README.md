@@ -27,6 +27,6 @@ Group Assignment for class
     
     <h1>Product description:</h1>
     <h1>Product description:</h1>
-        <p>,amage tasks and projects with TaskMaster!</p></br>
+        <p>,amage tasks and projects with TaskMaster!</p><br>
         <p>At home, At school, At work, Online, and across 2 platforms!</p>
     
