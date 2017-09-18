@@ -32,6 +32,6 @@
 <h1>Personal notes</h1>
     <ul>
         <li>Notebook</li>
-            <ul><li></li>
+            <ul><li>Mini text area for personal notes (sticky notes ish)</li></ul>
     </ul>
    
