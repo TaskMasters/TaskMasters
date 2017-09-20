@@ -12,7 +12,7 @@ Group Assignment for class
 <h3>Trello:</h3>
 <a href="https://trello.com/b/OhWN9m7C/uia17-taskmasters">Link til Trello!</a>
 <p>
-    <h4>Trello Description</h4><br>
+    <h4>Trello Description</h4>
         Colour coding on trello: Red is important, then it scales down to green which is least important. <br>
 </p>
 
