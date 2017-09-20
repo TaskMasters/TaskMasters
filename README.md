@@ -9,8 +9,11 @@ Group Assignment for class
 
 <p>Wanwisa Prathan : github.com/wanniprathan</p>
 
-<h2>Trello:</h2>
+<h3>Trello:</h3>
 <a href="https://trello.com/b/OhWN9m7C/uia17-taskmasters">Link til Trello!</a>
+
+<h3>Acceptancetest:</h3>
+<a href="https://docs.google.com/document/d/1gRtanWAM0Jxp_I1M1L99thJyTGMoasjkYGoqtlSIxtc/edit">Link til Acceptancetest!</a>
 
 <h1>Product description:</h1>
     <p>Mamage tasks and projects with TaskMaster!</p>
