@@ -10,8 +10,8 @@ Group Assignment for class
 <p>Wanwisa Prathan : github.com/wanniprathan</p>
 
 <h3>Trello:</h3>
-<a href="https://trello.com/b/OhWN9m7C/uia17-taskmasters" target="_blank"> >Link til Trello!</a>
-<p>
+    <a href="https://trello.com/b/OhWN9m7C/uia17-taskmasters" target="_blank"> >Link til Trello!</a>
+    <p>
 
 
 <h1>Product description:</h1>
