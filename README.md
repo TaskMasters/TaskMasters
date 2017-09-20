@@ -13,8 +13,6 @@ Group Assignment for class
 <a href="https://trello.com/b/OhWN9m7C/uia17-taskmasters" target="_blank"> >Link til Trello!</a>
 <p>
 
-<h3>Acceptance test:</h3>
-<a href="https://docs.google.com/document/d/1gRtanWAM0Jxp_I1M1L99thJyTGMoasjkYGoqtlSIxtc/edit?usp=sharing" target="_blank">Acceptance test!</a>
 
 <h1>Product description:</h1>
     <p>Mamage tasks and projects with TaskMaster!</p>
