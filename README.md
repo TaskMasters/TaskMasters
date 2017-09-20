@@ -10,14 +10,14 @@ Group Assignment for class
 <p>Wanwisa Prathan : github.com/wanniprathan</p>
 
 <h3>Trello:</h3>
-<a href="https://trello.com/b/OhWN9m7C/uia17-taskmasters">Link til Trello!</a>
+<a href="https://trello.com/b/OhWN9m7C/uia17-taskmasters" target="=_blank">Link til Trello!</a>
 <p>
     <h4>Trello Description</h4>
         Colour coding on trello: Red is important, then it scales down to green which is least important. <br>
 </p>
 
 <h3>Acceptance test:</h3>
-<a href="https://docs.google.com/document/d/1gRtanWAM0Jxp_I1M1L99thJyTGMoasjkYGoqtlSIxtc/edit?usp=sharing">Acceptance test!</a>
+<a href="https://docs.google.com/document/d/1gRtanWAM0Jxp_I1M1L99thJyTGMoasjkYGoqtlSIxtc/edit?usp=sharing" target="=_blank">Acceptance test!</a>
 
 <h1>Product description:</h1>
     <p>Mamage tasks and projects with TaskMaster!</p>
@@ -27,6 +27,6 @@ Group Assignment for class
 
 
 <h1>Feature map</h1>
-<a href="https://docs.google.com/document/d/1XF9L4iU5AeUsFWNIKX7sd4LmYNDk1bGtONetbDGqUbM/edit?usp=sharing">Feature map</a>
+<a href="https://docs.google.com/document/d/1XF9L4iU5AeUsFWNIKX7sd4LmYNDk1bGtONetbDGqUbM/edit?usp=sharing" target="=_blank">Feature map</a>
 
     
