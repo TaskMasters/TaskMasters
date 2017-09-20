@@ -27,6 +27,12 @@
         <ul><li>Email notification with to-do points</li></ul>
     <li>Notifications</li>
         <ul><li>Email, push varning (phone)</li></ul>
+
+    <li>Task Description</li>
+        <ul><il>Comment field for users to write feedback to a task</il></ul>
+    <li>Task assignement</li>
+        <ul><il>To indicate who are working on the given task</il></ul>
+
 </ul>
    
 <h1>Personal notes</h1>
