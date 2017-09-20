@@ -16,8 +16,8 @@ Group Assignment for class
         Colour coding on trello: Red is important, then it scales down to green which is least important. <br>
 </p>
 
-<h3>Acceptancetest:</h3>
-<a href="https://docs.google.com/document/d/1gRtanWAM0Jxp_I1M1L99thJyTGMoasjkYGoqtlSIxtc/edit">Link til Acceptancetest!</a>
+<h3>Acceptance test:</h3>
+<a href="https://docs.google.com/document/d/1gRtanWAM0Jxp_I1M1L99thJyTGMoasjkYGoqtlSIxtc/edit?usp=sharing">Acceptance test!</a>
 
 <h1>Product description:</h1>
     <p>Mamage tasks and projects with TaskMaster!</p>
@@ -26,23 +26,7 @@ Group Assignment for class
     
 
 
-<h1>Roadmap:</h1>
-    <ol>
-        <li>Create/delete list items</li>
-        <li>Multiple named lists</li>
-        <li>Deadlines</li>
-        <li>User accounts</li>
-        <li>Sharable</li>
-        <li>Reorder</li>
-        <li>Tagging list items</li>
-        <li>Notifications</li>
-        <li>Reports</li>
-        <li>Notebook</li>
-        <li>Metrics</li>
-        <li>Description</li>
-        <li>Task assigner</li>
-        
-    </ol>
-    
+<h1>Feature map</h1>
+<a href="https://docs.google.com/document/d/1XF9L4iU5AeUsFWNIKX7sd4LmYNDk1bGtONetbDGqUbM/edit?usp=sharing">Feature map</a>
 
     
