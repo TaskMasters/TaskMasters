@@ -11,6 +11,10 @@ Group Assignment for class
 
 <h3>Trello:</h3>
 <a href="https://trello.com/b/OhWN9m7C/uia17-taskmasters">Link til Trello!</a>
+<p>
+    <h4>Trello Description</h4><br>
+        Colour coding on trello: Red is important, then it scales down to green which is least important. <br>
+</p>
 
 <h3>Acceptancetest:</h3>
 <a href="https://docs.google.com/document/d/1gRtanWAM0Jxp_I1M1L99thJyTGMoasjkYGoqtlSIxtc/edit">Link til Acceptancetest!</a>
@@ -33,7 +37,12 @@ Group Assignment for class
         <li>Tagging list items</li>
         <li>Notifications</li>
         <li>Reports</li>
-        <li>Notesbook</li>
+        <li>Notebook</li>
         <li>Metrics</li>
+        <li>Description</li>
+        <li>Task assigner</li>
+        
     </ol>
+    
+
     
