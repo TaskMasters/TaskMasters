@@ -1,98 +1,102 @@
-*{
+* {
   font-family: sans-serif;
 }
-  #background{
-    position:fixed;
-    bottom:0px;
-    left:0px;
-    width: 100%;
-    z-index: -1;
-  }
+#background {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  width: 100%;
+  z-index: -1;
+}
 
-  body{
-    margin: 0;
-  }
+body {
+  margin: 0;
+}
 
-  hr{
-    border-color: white;
-    margin-left: 50px;
-    margin-right: 50px;
-  }
+hr {
+  border-color: white;
+  margin-left: 50px;
+  margin-right: 50px;
+}
 
-  #content{
-    width: 768px;
-    background-color: #00a4bc;
-    margin: 0 auto;
-  }
+#content {
+  width: 768px;
+  background-color: #00a4bc;
+  margin: 0 auto;
+}
 
-  input{
-    margin: 10px;
-    padding: 5px;
-  }
+input {
+  margin: 10px;
+  padding: 5px;
+}
 
-  button{
-    width: 91%;
-    height: 40px;
-    margin: 10px;
-    margin-bottom: 0;
-    padding: 5px;
-    background-color: white;
-    color: grey;
-    border-color: White;
-    border-radius: 7px;
-    outline: none;
-    cursor: pointer;
-  }
+button {
+  width: 91%;
+  height: 40px;
+  margin: 10px;
+  margin-bottom: 0;
+  padding: 5px;
+  background-color: white;
+  color: grey;
+  border-color: White;
+  border-radius: 7px;
+  outline: none;
+  cursor: pointer;
+}
 
-  #login{
-    padding-top: 50px;
-    padding-bottom: 70px;
-    vertical-align: middle;
-    margin: auto;
-    width: 200px;
-    text-align: center;
-  }
+#login {
+  padding-top: 50px;
+  padding-bottom: 70px;
+  vertical-align: middle;
+  margin: auto;
+  width: 200px;
+  text-align: center;
+}
 
-  #Header{
-    height: 75px;
-    min-width: 480px;
-    margin-bottom: 10px;
-    background-color: #00a4bc;
-  }
+#Header {
+  height: 75px;
+  min-width: 480px;
+  margin-bottom: 10px;
+  background-color: #00a4bc;
+}
 
-  #signIn{
-    margin-top: 0;
-    color: white;
-  }
-  #signUpFont{
-    margin-top: 18px;
-    color: white;
-    font-size: 0.8em;
-  }
+#signIn {
+  margin-top: 0;
+  color: white;
+}
+#signUpFont {
+  margin-top: 18px;
+  color: white;
+  font-size: 0.8em;
+}
 
-  #Heading{
-    text-align: center;
-    line-height: 75px;
-    color: white;
-    font-size: 2.5em;
-    margin: 0;
-  }
-  /* unvisited link */
-  a:link {
-      color: inherit;
-  }
+#Heading {
+  text-align: center;
+  line-height: 75px;
+  color: white;
+  font-size: 2.5em;
+  margin: 0;
+}
+/* unvisited link */
+a:link {
+  color: inherit;
+  text-decoration: none;
+}
 
-  /* visited link */
-  a:visited {
-      color: inherit;
-  }
+/* visited link */
+a:visited {
+  color: inherit;
+  text-decoration: none;
+}
 
-  /* mouse over link */
-  a:hover {
-      color: grey;
-  }
+/* mouse over link */
+a:hover {
+  color: grey;
+  text-decoration: none;
+}
 
-  /* selected link */
-  a:active {
-      color: inherit;
-  }
+/* selected link */
+a:active {
+  color: inherit;
+  text-decoration: none;
+}

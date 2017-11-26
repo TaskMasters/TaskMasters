@@ -1,36 +1,20 @@
-/*const express = require('express')
-const app = express()
+const express = require('express');
+const bodyParser = require('body-parser');
+const morgan = require('morgan');
 
-app.use(express.static('./public'))
+const APIrouter = require('./APIroutes');
+const ClientRouter = require('./ClientRoutes');
 
-app.get('/:id', function (req, res) {
-  res.send('Hello ' + req.params.id)
-})
+const app = express();
+const port = process.env.PORT || 8080;
 
-app.listen(8080)
-
-console.log('localhost:8080')
-*/
-
-var express = require('express');
-var app = express();
-
-app.set('port', (process.env.PORT || 8080));
-
+app.use(morgan('dev'));
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(__dirname + '/public'));
+app.use(ClientRouter());
+app.use('/API', APIrouter());
 
-app.get('/:id', function (req, res) {
-  res.send('Hello ' + req.params.id)
-})
-
-// views is directory for all template files
-app.set('views', __dirname + '/views');
-app.set('view engine', 'ejs');
-
-app.get('/', function(request, response) {
-  response.render('pages/index');
-});
-
-app.listen(app.get('port'), function() {
-  console.log('Node app is running on port', app.get('port'));
+app.listen(port, () => {
+  console.log('Node app is running on port', port);
 });

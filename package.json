@@ -7,15 +7,20 @@
   },
   "main": "server.js",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "cross-env DATABASE_URL=postgres://postgres:passord@localhost:5432/postgres nodemon server.js"
   },
   "dependencies": {
-    "ejs": "2.5.6",
-    "express": "4.15.2"
+    "body-parser": "^1.18.2",
+    "cross-env": "^5.1.1",
+    "crypto": "^1.0.1",
+    "express": "4.15.2",
+    "jsonwebtoken": "^8.1.0",
+    "morgan": "^1.9.0",
+    "pg": "^7.4.0"
   },
   "devDependencies": {
-    "request": "^2.81.0",
-    "tape": "^4.7.0"
+    "nodemon": "^1.12.1"
   },
   "repository": {
     "type": "git",
