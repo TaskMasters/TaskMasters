@@ -4,9 +4,10 @@
 
 #boards {
   padding-right: 30px;
+  display: flex;
 }
 
-#board {
+.board {
   height: 300px;
   width: 200px;
   margin-left: 30px;
@@ -14,14 +15,17 @@
   display: inline-block;
 }
 
-#boardTitle {
+.boardTitle {
   color: white;
   margin: auto 0;
   text-align: center;
   margin-top: 20px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin: 15px;
 }
 
-#description {
+.description {
   color: white;
   margin: 15px;
   font-size: 1.2em;

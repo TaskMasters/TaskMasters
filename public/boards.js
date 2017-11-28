@@ -14,6 +14,7 @@ fetch('/API/boards', {
   })
   .then(function(boards) {
     console.log(boards);
+    addBoards(boards.boards);
   })
   .catch(function(err) {
     console.log(err);
@@ -30,33 +31,63 @@ var color = [
   '#4FFFB5'
 ];
 
-addBoard();
+function createBoard(e) {
+  e.preventDefault();
+  fetch('/API/boards', {
+    method: 'post',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + localStorage.getItem('myApp@token')
+    },
+    body: JSON.stringify({
+      name: document.getElementById('title').value,
+      description: document.getElementById('description').value
+    })
+  })
+    .then(function(response) {
+      if (response.status === 401) {
+        window.location.replace('/');
+      }
+      console.log(response);
+      return response.json();
+    })
+    .then(function(boards) {
+      console.log(boards);
+    })
+    .catch(function(err) {
+      console.log(err);
+    });
+}
 
-function addBoard() {
-  for (i = 0; i < 12; i++) {
+function goToBoard(id) {
+  return function() {
+    window.location.href = '/boards/' + id;
+    console.log('teit');
+  };
+}
+
+function addBoards(boards) {
+  for (var i = 0; i < boards.length; i++) {
     var x = Math.floor(Math.random() * 8);
 
     var newBoard = document.createElement('div');
-    newBoard.id = 'board';
-    newBoard.style.backgroundColor = color[x];
-    console.log(x);
+    newBoard.onclick = goToBoard(boards[i].id);
+    newBoard.className = 'board';
+    newBoard.style.backgroundColor = color[boards[i].id % 8];
 
     var title = document.createElement('h1');
-    title.id = 'boardTitle';
-    var text = document.createTextNode('Board ' + (i + 1));
+    title.className = 'boardTitle';
+    var text = document.createTextNode(boards[i].name);
     title.appendChild(text);
     newBoard.appendChild(title);
 
     var description = document.createElement('p');
-    description.id = 'description';
-    var descText = document.createTextNode(
-      'This is a description for board nr: ' + (i + 1)
-    );
+    description.className = 'description';
+    var descText = document.createTextNode(boards[i].description || '');
     description.appendChild(descText);
     newBoard.appendChild(description);
 
-    var boards = document.getElementById('boards');
-
-    boards.appendChild(newBoard);
+    document.getElementById('boards').appendChild(newBoard);
   }
+  console.log(i);
 }

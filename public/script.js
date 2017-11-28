@@ -39,12 +39,19 @@ function logIn(e) {
     })
   })
     .then(function(response) {
+      if (response.status !== 200) {
+        return null;
+      }
       return response.json();
     })
     .then(function(token) {
-      localStorage.setItem('myApp@token', token.token);
-      window.location.replace('/boards');
-      console.log(token);
+      if (token) {
+        localStorage.setItem('myApp@token', token.token);
+        window.location.replace('/boards');
+        console.log(token);
+      } else {
+        console.log('Feil brukernavn eller passord');
+      }
     })
     .catch(function(err) {
       console.log(err);
