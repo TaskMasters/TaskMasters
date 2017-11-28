@@ -1,0 +1,28 @@
+#Header {
+  margin: 0 !important;
+}
+
+#boards {
+  padding-right: 30px;
+}
+
+#board {
+  height: 300px;
+  width: 200px;
+  margin-left: 30px;
+  margin-top: 30px;
+  display: inline-block;
+}
+
+#boardTitle {
+  color: white;
+  margin: auto 0;
+  text-align: center;
+  margin-top: 20px;
+}
+
+#description {
+  color: white;
+  margin: 15px;
+  font-size: 1.2em;
+}

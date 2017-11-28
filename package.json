@@ -3,12 +3,13 @@
   "version": "0.0.1",
   "description": "node exercise 2",
   "engines": {
-    "node": "6.11.1"
+    "node": "8.9.1"
   },
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
-    "dev": "cross-env DATABASE_URL=postgres://postgres:passord@localhost:5432/postgres nodemon server.js"
+    "dev":
+      "cross-env DATABASE_URL=postgres://postgres:passord@localhost:5432/postgres nodemon server.js"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
@@ -26,10 +27,6 @@
     "type": "git",
     "url": "https://github.com/Shnomy/node_exercise_2"
   },
-  "keywords": [
-    "node",
-    "heroku",
-    "express"
-  ],
+  "keywords": ["node", "heroku", "express"],
   "license": "MIT"
 }
