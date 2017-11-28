@@ -50,7 +50,7 @@ function createBoard(e) {
       }
       console.log(response);
       return response.json();
-    })
+    });
     .then(function(boards) {
       console.log(boards);
     })
