@@ -4,8 +4,8 @@
 <head>
   <meta charset="utf-8" />
   <title>TaskMasters</title>
-  <link rel="stylesheet" type="text/css" href="/boards.css">
   <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" type="text/css" href="/boards.css">
 
 </head>
 
@@ -16,11 +16,14 @@
   </div>
 
   <div id="boards">
-
   </div>
-  <input type="text" id="title" name="title" placeholder="Enter Title"><br>
-  <input type="text" id="description" name="description" placeholder="Enter Description"><br>
-  <button type="button" onclick="return createBoard(event)">CREATE BOARD</button>
+
+  <div class="newBoard">
+    <input type="text" id="title" name="title" placeholder="Enter Title"><br>
+    <input type="text" id="description" name="description" placeholder="Enter Description"><br>
+    <button type="button" class="button" onclick="return createBoard(event)">CREATE BOARD</button>
+  </div>
+
   <img id="background" src="/background.jpg" alt="city View">
   <script src="/boards.js"></script>
 

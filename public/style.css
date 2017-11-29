@@ -13,16 +13,10 @@ body {
   margin: 0;
 }
 
-hr {
-  border-color: white;
-  margin-left: 50px;
-  margin-right: 50px;
-}
-
 #content {
   width: 768px;
   background-color: #00a4bc;
-  margin: 0 auto;
+  margin: 30px auto;
 }
 
 input {
@@ -30,8 +24,8 @@ input {
   padding: 5px;
 }
 
-#button {
-  width: 91%;
+.button {
+  width: 180px;
   height: 40px;
   margin: 10px;
   margin-bottom: 0;
@@ -58,6 +52,7 @@ input {
   min-width: 480px;
   margin-bottom: 10px;
   background-color: #00a4bc;
+  margin: 0;
 }
 
 #signIn {
