@@ -89,5 +89,4 @@ function addBoards(boards) {
 
     document.getElementById('boards').appendChild(newBoard);
   }
-  console.log(i);
 }

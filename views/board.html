@@ -5,6 +5,7 @@
   <meta charset="utf-8" />
   <title>TaskMasters</title>
   <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" type="text/css" href="/board.css">
 
 </head>
 
@@ -14,10 +15,12 @@
     <h1 id="Heading"> </h1>
   </div>
 
-  <div id="content">
-
-
-    </div>
+  <div class="board" id="board">
+  </div>
+  <div class="createTaskContainer">
+    <input type="text" id="title" name="title" placeholder="Enter Title"><br>
+    <button type="button" class="button" onclick="return createTask(event)">CREATE TASK</button>
+  </div>
   <img id="background" src="/background.jpg" alt="city View">
   <script src="/board.js"></script>
 </body>

@@ -1,0 +1,22 @@
+.task {
+  width: 300px;
+  margin: 30px;
+  padding: 30px;
+}
+
+.taskTitle {
+  color: white;
+  margin: 0;
+}
+
+.form {
+  color: white;
+  margin: 10px;
+}
+
+.createTaskContainer {
+  background-color: #00a4bc;
+  width: 300px;
+  margin: 30px;
+  padding: 30px;
+}
