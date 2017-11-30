@@ -18,8 +18,11 @@
   <div class="board" id="board">
   </div>
   <div class="createTaskContainer">
-    <input type="text" id="title" name="title" placeholder="Enter Title"><br>
-    <button type="button" class="button" onclick="return createTask(event)">CREATE TASK</button>
+    <input type="text" id="newListTitle" name="title" placeholder="Enter Title"><br>
+    <div class="listWrapper" id="listWrapper">
+    </div>
+    <input type="date" id="deadline">
+    <button type="button" class="button" onclick="return createList(event)">CREATE TASK</button>
   </div>
   <img id="background" src="/background.jpg" alt="city View">
   <script src="/board.js"></script>

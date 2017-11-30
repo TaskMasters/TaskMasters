@@ -1,9 +1,36 @@
+function parseData(rows) {
+  const result = {};
+  rows.forEach(row => {
+    if (result.lists) {
+      result.lists.push({
+        id: row.listid,
+        name: row.listname,
+        deadline: row.deadline
+      });
+    } else {
+      result.lists = [
+        {
+          id: row.listid,
+          name: row.listname,
+          deadline: row.deadline
+        }
+      ];
+      result.id = row.boardid;
+      result.name = row.boardname;
+    }
+  });
+  return result;
+}
+
 module.exports = ({ database }) => {
   const getBoard = (req, res, next) => {
     return database
-      .query('SELECT * FROM  Boards WHERE id=$1', [req.params.id])
+      .query(
+        'SELECT Boards.id AS boardId, Boards.name AS boardName, Boards.username, Lists.id AS listID, Lists.name AS listName, Lists.deadline FROM Boards LEFT JOIN lists ON (Boards.id=Lists.board_id) WHERE Boards.id=$1;',
+        [req.params.id]
+      )
       .then(response => {
-        res.json({ board: response.rows[0] });
+        res.json(parseData(response.rows));
       })
       .catch(err => {
         console.log(err);
@@ -12,7 +39,7 @@ module.exports = ({ database }) => {
   };
   const getBoards = (req, res, next) => {
     return database
-      .query('SELECT * FROM  Boards WHERE username=$1', [req.user.name])
+      .query('SELECT * FROM Boards WHERE username=$1', [req.user.name])
       .then(response => {
         res.json({ boards: response.rows });
       })
@@ -38,12 +65,12 @@ module.exports = ({ database }) => {
   };
   const createList = (req, res, next) => {
     return database
-      .query('INSERT INTO Lists(name, board_id) VALUES($1, $2) RETURNING id', [
-        req.body.name,
-        req.body.board_id
-      ])
+      .query(
+        'INSERT INTO Lists(name, board_id, deadline) VALUES($1, $2, $3) RETURNING *',
+        [req.body.name, req.body.board_id, req.body.deadline]
+      )
       .then(response => {
-        res.json({ id: response.rows[0].id });
+        res.json({ list: response.rows[0] });
       })
       .catch(err => {
         console.log(err);
@@ -51,5 +78,5 @@ module.exports = ({ database }) => {
       });
   };
 
-  return { getBoard, getBoards, createBoard };
+  return { getBoard, getBoards, createBoard, createList };
 };

@@ -11,6 +11,7 @@ module.exports = () => {
   router.get('/boards', auth(), boardController.getBoards);
   router.post('/boards', auth(), boardController.createBoard);
   router.get('/boards/:id', auth(), boardController.getBoard);
+  router.post('/lists', auth(), boardController.createList);
 
   return router;
 };
