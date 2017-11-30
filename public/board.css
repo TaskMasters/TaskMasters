@@ -14,9 +14,14 @@
   margin: 10px;
 }
 
+.board {
+  display: flex;
+}
+
 .createTaskContainer {
   background-color: #00a4bc;
   width: 300px;
   margin: 30px;
   padding: 30px;
+  text-align: center;
 }
