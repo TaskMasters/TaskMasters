@@ -51,8 +51,9 @@ function createBoard(e) {
       console.log(response);
       return response.json();
     })
-    .then(function(boards) {
-      console.log(boards);
+    .then(function(board) {
+      console.log(board);
+      window.location.replace('/boards/' + board.id);
     })
     .catch(function(err) {
       console.log(err);
@@ -72,6 +73,7 @@ function addBoards(boards) {
 
     var newBoard = document.createElement('div');
     newBoard.onclick = goToBoard(boards[i].id);
+    newBoard.id = 'board' + boards[i].id;
     newBoard.className = 'board';
     newBoard.style.backgroundColor = color[boards[i].id % 8];
 
@@ -87,6 +89,41 @@ function addBoards(boards) {
     description.appendChild(descText);
     newBoard.appendChild(description);
 
+    var deleteButton = document.createElement('button');
+    deleteButton.className = 'button';
+    deleteButton.onclick = deleteBoard(boards[i].id);
+    var node = document.createTextNode('DELETE BOARD');
+    deleteButton.appendChild(node);
+    newBoard.appendChild(deleteButton);
+
     document.getElementById('boards').appendChild(newBoard);
   }
+}
+
+function deleteBoard(id) {
+  return function(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    fetch('/API/boards/' + id, {
+      method: 'delete',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('myApp@token')
+      }
+    })
+      .then(function(response) {
+        if (response.status === 401) {
+          window.location.replace('/');
+        }
+        console.log(response);
+        return response.json();
+      })
+      .then(function(deletedBoard) {
+        console.log(deletedBoard);
+        document.getElementById('board' + deletedBoard.id).remove();
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+  };
 }

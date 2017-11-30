@@ -65,12 +65,12 @@ function setTitle(title) {
 
 function renderList(list) {
   var newList = document.createElement('div');
-  newList.id = 'task' + list.id;
-  newList.className = 'task';
+  newList.id = 'list' + list.id;
+  newList.className = 'list';
   newList.style.backgroundColor = '#00a4bc';
 
   var title = document.createElement('h1');
-  title.className = 'taskTitle';
+  title.className = 'listTitle';
   var text = document.createTextNode(list.name);
   title.appendChild(text);
   newList.appendChild(title);
@@ -78,13 +78,17 @@ function renderList(list) {
   var line = document.createElement('HR');
   newList.appendChild(line);
 
-  var form = document.createElement('ul');
-  form.className = 'form';
-  form.id = 'form';
-  newList.appendChild(form);
+  var todoList = document.createElement('ul');
+  todoList.className = 'todoList';
+  todoList.id = 'todoList' + list.id;
+  newList.appendChild(todoList);
 
   var date = document.createElement('p');
-  date.className = 'date';
+  date.className =
+    'date' +
+    (new Date(list.deadline).getTime() > new Date().getTime()
+      ? 'due'
+      : 'overdue');
   var text = document.createTextNode(
     'Deadline ' + list.deadline.substring(0, list.deadline.length - 14)
   );
@@ -92,27 +96,95 @@ function renderList(list) {
   newList.appendChild(date);
 
   var input = document.createElement('input');
-  input.id = 'taskInput';
+  input.id = 'todoInput' + list.id;
   input.setAttribute('placeholder', 'Enter Task');
   newList.appendChild(input);
 
   var submitButton = document.createElement('button');
   submitButton.className = 'button';
-  submitButton.id = 'submitButton';
-  submitButton.onclick = createTask(list.id);
+  submitButton.onclick = createTodo(list.id);
   var node = document.createTextNode('ADD');
   submitButton.appendChild(node);
   newList.appendChild(submitButton);
 
+  var deleteButton = document.createElement('button');
+  deleteButton.className = 'button';
+  deleteButton.onclick = deleteList(list.id);
+  var node = document.createTextNode('DELETE LIST');
+  deleteButton.appendChild(node);
+  newList.appendChild(deleteButton);
+
   document.getElementById('board').appendChild(newList);
+
+  if (list.todos) {
+    for (var i = 0; i < list.todos.length; i++) {
+      renderTodo(list.todos[i]);
+    }
+  }
 }
 
-function createTask(id) {
-  return function() {
-    var task = document.getElementById('taskInput').value;
-    var taskText = document.createTextNode(task);
-    var newTask = document.createElement('li');
-    newTask.appendChild(taskText);
-    document.getElementById('form').appendChild(newTask);
+function createTodo(id) {
+  return function(e) {
+    e.preventDefault();
+    fetch('/API/todos', {
+      method: 'post',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('myApp@token')
+      },
+      body: JSON.stringify({
+        text: document.getElementById('todoInput' + id).value,
+        listid: id
+      })
+    })
+      .then(function(response) {
+        if (response.status === 401) {
+          window.location.replace('/');
+        }
+        console.log(response);
+        return response.json();
+      })
+      .then(function(newTodo) {
+        console.log(newTodo);
+        renderTodo(newTodo.todo);
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
   };
+}
+
+function deleteList(id) {
+  return function(e) {
+    e.preventDefault();
+    fetch('/API/lists/' + id, {
+      method: 'delete',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('myApp@token')
+      }
+    })
+      .then(function(response) {
+        if (response.status === 401) {
+          window.location.replace('/');
+        }
+        console.log(response);
+        return response.json();
+      })
+      .then(function(deletedTodo) {
+        console.log(deletedTodo);
+        document.getElementById('list' + deletedTodo.id).remove();
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+  };
+}
+
+function renderTodo(todo) {
+  var taskText = document.createTextNode(todo.text);
+  var newTask = document.createElement('li');
+  newTask.appendChild(taskText);
+  console.log(todo.listid);
+  document.getElementById('todoList' + todo.list_id).appendChild(newTask);
 }
