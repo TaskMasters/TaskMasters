@@ -1,36 +1,61 @@
-function parseData(rows) {
-  const result = {};
-  rows.forEach(row => {
-    if (result.lists) {
-      result.lists.push({
-        id: row.listid,
-        name: row.listname,
-        deadline: row.deadline
-      });
-    } else {
-      result.lists = [
+function formatData(data) {
+  // Finding lists
+  const lists = data.reduce((acc, row) => {
+    acc[row.listid] = {
+      id: row.listid,
+      deadline: row.deadline,
+      name: row.listname
+    };
+    return acc;
+  }, {});
+
+  // Finding todos
+  data.forEach(row => {
+    if (row.todoid) {
+      lists[row.listid].todos = [].concat(lists[row.listid].todos || [], [
         {
-          id: row.listid,
-          name: row.listname,
-          deadline: row.deadline
+          id: row.todoid,
+          text: row.text,
+          done: row.done,
+          list_id: row.listid
         }
-      ];
-      result.id = row.boardid;
-      result.name = row.boardname;
+      ]);
     }
   });
-  return result;
+
+  const listsWithTodos = Object.keys(lists).map(key => lists[key]);
+
+  return {
+    id: data[0].boardid,
+    name: data[0].boardname,
+    lists: listsWithTodos
+  };
 }
 
 module.exports = ({ database }) => {
   const getBoard = (req, res, next) => {
     return database
       .query(
-        'SELECT Boards.id AS boardId, Boards.name AS boardName, Boards.username, Lists.id AS listID, Lists.name AS listName, Lists.deadline FROM Boards LEFT JOIN lists ON (Boards.id=Lists.board_id) WHERE Boards.id=$1;',
+        `SELECT
+          Boards.id AS BoardId,
+          Boards.name AS BoardName,
+          Boards.username,
+          Lists.id AS ListId,
+          Lists.name AS ListName,
+          Lists.deadline,
+          Todos.id AS TodoId,
+          Todos.text,
+          Todos.done
+          FROM Boards
+        LEFT JOIN lists
+          ON (Boards.id=Lists.board_id)
+        LEFT JOIN todos
+          ON (Lists.id=Todos.list_id)
+        WHERE Boards.id=$1`,
         [req.params.id]
       )
       .then(response => {
-        res.json(parseData(response.rows));
+        res.json(formatData(response.rows));
       })
       .catch(err => {
         console.log(err);
@@ -78,5 +103,52 @@ module.exports = ({ database }) => {
       });
   };
 
-  return { getBoard, getBoards, createBoard, createList };
+  const createTodo = (req, res, next) => {
+    return database
+      .query('INSERT INTO Todos(text, list_id) VALUES($1, $2) RETURNING *', [
+        req.body.text,
+        req.body.listid
+      ])
+      .then(response => {
+        res.json({ todo: response.rows[0] });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(401).send('failed creating todo');
+      });
+  };
+
+  const deleteList = (req, res, next) => {
+    return database
+      .query('DELETE FROM Lists WHERE id=$1 RETURNING id', [req.params.id])
+      .then(response => {
+        res.json({ id: response.rows[0].id });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(401).send('failed deleting list');
+      });
+  };
+
+  const deleteBoard = (req, res, next) => {
+    return database
+      .query('DELETE FROM Boards WHERE id=$1 RETURNING id', [req.params.id])
+      .then(response => {
+        res.json({ id: response.rows[0].id });
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(401).send('failed deleting board');
+      });
+  };
+
+  return {
+    getBoard,
+    getBoards,
+    createBoard,
+    createList,
+    createTodo,
+    deleteList,
+    deleteBoard
+  };
 };

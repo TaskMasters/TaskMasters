@@ -1,15 +1,15 @@
-.task {
+.list {
   width: 300px;
   margin: 30px;
   padding: 30px;
 }
 
-.taskTitle {
+.listTitle {
   color: white;
   margin: 0;
 }
 
-.form {
+.todoList {
   color: white;
   margin: 10px;
 }
@@ -17,6 +17,14 @@
 .board {
   display: flex;
   flex-wrap: wrap;
+}
+
+.datedue {
+  color: white;
+}
+
+.dateoverdue {
+  color: red;
 }
 
 .createTaskContainer {
