@@ -16,6 +16,7 @@
 
 .board {
   display: flex;
+  flex-wrap: wrap;
 }
 
 .createTaskContainer {
@@ -23,5 +24,4 @@
   width: 300px;
   margin: 30px;
   padding: 30px;
-  text-align: center;
 }

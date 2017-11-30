@@ -1,3 +1,3 @@
-Her er en link til min heroku app
+Vecome to TaskMasters
 
-url: https://node-task-2.herokuapp.com/
+url: https://task-masters.herokuapp.com/
