@@ -117,9 +117,13 @@ function renderList(list) {
   document.getElementById('board').appendChild(newList);
 
   if (list.todos) {
-    for (var i = 0; i < list.todos.length; i++) {
-      renderTodo(list.todos[i]);
-    }
+    list.todos
+      .sort(function(a, b) {
+        return a.done - b.done;
+      })
+      .forEach(function(todo) {
+        renderTodo(todo);
+      });
   }
 }
 
@@ -184,7 +188,48 @@ function deleteList(id) {
 function renderTodo(todo) {
   var taskText = document.createTextNode(todo.text);
   var newTask = document.createElement('li');
+  newTask.onclick = toggleDone(todo);
+  newTask.id = 'todo' + todo.id;
+  newTask.className = 'todo' + (todo.done ? 'done' : 'notDone');
   newTask.appendChild(taskText);
   console.log(todo.listid);
   document.getElementById('todoList' + todo.list_id).appendChild(newTask);
+}
+
+function updateTodo(updatedTodo) {
+  var todo = document.getElementById('todo' + updatedTodo.id);
+  todo.className = 'todo' + (updatedTodo.done ? 'done' : 'notDone');
+  todo.onclick = toggleDone(updatedTodo);
+}
+
+function toggleDone(todo) {
+  return function(e) {
+    e.stopPropagation();
+    e.preventDefault();
+    console.log(
+      JSON.stringify({
+        done: !todo.done
+      })
+    );
+    fetch('/API/todos/' + todo.id, {
+      method: 'put',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: 'Bearer ' + localStorage.getItem('myApp@token')
+      },
+      body: JSON.stringify({
+        done: !todo.done
+      })
+    })
+      .then(function(response) {
+        if (response.status === 401) {
+          window.location.replace('/');
+        }
+        updateTodo(Object.assign(todo, { done: !todo.done }));
+        console.log(response);
+      })
+      .catch(function(err) {
+        console.log(err);
+      });
+  };
 }

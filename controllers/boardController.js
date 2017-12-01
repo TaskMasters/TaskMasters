@@ -142,6 +142,22 @@ module.exports = ({ database }) => {
       });
   };
 
+  const updateTodo = (req, res, next) => {
+    console.log(req.body);
+    return database
+      .query('UPDATE Todos SET done=$1 WHERE id=$2 RETURNING *', [
+        req.body.done,
+        req.params.id
+      ])
+      .then(() => {
+        res.status(200).send();
+      })
+      .catch(err => {
+        console.log(err);
+        res.status(401).send('failed updateing todo');
+      });
+  };
+
   return {
     getBoard,
     getBoards,
@@ -149,6 +165,7 @@ module.exports = ({ database }) => {
     createList,
     createTodo,
     deleteList,
-    deleteBoard
+    deleteBoard,
+    updateTodo
   };
 };

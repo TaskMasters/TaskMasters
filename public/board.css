@@ -33,3 +33,11 @@
   margin: 30px;
   padding: 30px;
 }
+
+.todonotDone {
+}
+
+.tododone {
+  color: green;
+  text-decoration: line-through;
+}
