@@ -14,7 +14,7 @@ body {
 }
 
 #content {
-  width: 768px;
+  max-width: 768px;
   background-color: #00a4bc;
   margin: 30px auto;
 }
@@ -24,6 +24,10 @@ input {
   padding: 5px;
 }
 
+#wrongCredentials {
+  color: red;
+}
+
 .button {
   width: 180px;
   height: 40px;
@@ -31,7 +35,7 @@ input {
   margin-bottom: 0;
   padding: 5px;
   background-color: white;
-  color: grey;
+  color: black;
   border-color: White;
   border-radius: 7px;
   outline: none;
@@ -43,13 +47,13 @@ input {
   padding-bottom: 70px;
   vertical-align: middle;
   margin: auto;
-  width: 200px;
+  width: 300px;
   text-align: center;
 }
 
 #Header {
   height: 75px;
-  min-width: 480px;
+  max-width: 100%;
   margin-bottom: 10px;
   background-color: #00a4bc;
   margin: 0;
@@ -71,6 +75,12 @@ input {
   color: white;
   font-size: 2.5em;
   margin: 0;
+}
+
+@media only screen and (max-width: 500px) {
+  #Heading {
+    font-size: 1.5em;
+  }
 }
 /* unvisited link */
 a:link {
