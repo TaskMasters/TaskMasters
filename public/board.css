@@ -46,10 +46,16 @@
 
 .todonotDone {
 }
+.todonotDone:hover {
+  cursor: pointer;
+}
 
 .tododone {
   color: green;
   text-decoration: line-through;
+}
+.tododone:hover {
+  cursor: pointer;
 }
 #deleteButton {
   background-color: #ed5e68;
