@@ -15,6 +15,7 @@ module.exports = () => {
   router.post('/lists', auth(), boardController.createList);
   router.delete('/lists/:id', auth(), boardController.deleteList);
   router.post('/todos', auth(), boardController.createTodo);
+  router.put('/todos/:id', auth(), boardController.updateTodo);
 
   return router;
 };
