@@ -1,3 +1,5 @@
+document.getElementById('deadline').valueAsDate = new Date();
+
 var boardId = (function() {
   var parser = document.createElement('a');
   parser.href = location.href;
@@ -84,28 +86,37 @@ function renderList(list) {
   newList.appendChild(todoList);
 
   var date = document.createElement('p');
+  console.log(list.deadline);
   date.className =
     'date' +
     (new Date(list.deadline).getTime() > new Date().getTime()
       ? 'due'
       : 'overdue');
   var text = document.createTextNode(
-    'Deadline ' + list.deadline.substring(0, list.deadline.length - 14)
+    'Deadline ' +
+      new Date(list.deadline)
+        .toLocaleDateString()
+        .substring(0, list.deadline.length - 14)
   );
   date.appendChild(text);
   newList.appendChild(date);
 
+  var form = document.createElement('form');
+  form.onsubmit = createTodo(list.id);
+  newList.appendChild(form);
+
   var input = document.createElement('input');
   input.id = 'todoInput' + list.id;
   input.setAttribute('placeholder', 'Enter Task');
-  newList.appendChild(input);
+  form.appendChild(input);
 
   var submitButton = document.createElement('button');
   submitButton.className = 'button';
   submitButton.onclick = createTodo(list.id);
+  submitButton.type = 'submit';
   var node = document.createTextNode('ADD');
   submitButton.appendChild(node);
-  newList.appendChild(submitButton);
+  form.appendChild(submitButton);
 
   var deleteButton = document.createElement('button');
   deleteButton.className = 'button';

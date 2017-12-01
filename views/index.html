@@ -19,9 +19,11 @@
   <div id="content">
       <div id="login">
         <h2 id="signIn"> Sign in here!</h1>
-        <input id="username" type="text" name="Username" placeholder="Enter your username">
-        <input id="password" type="password" name="Password" placeholder="Enter your password">
-        <button class="button" type="button" onclick="return logIn(event)">SIGN IN</button>
+        <form onsubmit="return logIn(event)">
+          <input id="username" type="text" name="Username" placeholder="Enter your username">
+          <input id="password" type="password" name="Password" placeholder="Enter your password">
+          <button class="button" type="submit" onclick="return logIn(event)">SIGN IN</button>
+        </form>
         <p id="signUpFont"><a href="/register">Not a user? sign up here</a></p>
       </div>
     </div>

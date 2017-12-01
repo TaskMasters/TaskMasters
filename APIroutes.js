@@ -7,7 +7,6 @@ module.exports = () => {
 
   router.post('/register', authController.register);
   router.post('/login', authController.login);
-  router.get('/users', authController.getUsers);
   router.get('/boards', auth(), boardController.getBoards);
   router.post('/boards', auth(), boardController.createBoard);
   router.get('/boards/:id', auth(), boardController.getBoard);

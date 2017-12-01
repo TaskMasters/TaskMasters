@@ -35,7 +35,7 @@ module.exports = ({ database, jwt }) => {
         [username, salt, passwordHash]
       )
       .then(response => {
-        res.send(response);
+        res.send({ success: true });
       })
       .catch(err => {
         console.log(err);
@@ -74,16 +74,6 @@ module.exports = ({ database, jwt }) => {
           .send({ success: false, error: 'Wrong username or password' });
       });
   };
-  const getUsers = (req, res, next) => {
-    return database
-      .query('SELECT * FROM Users')
-      .then(response => {
-        res.json(response.rows);
-      })
-      .catch(err => {
-        console.log(err);
-        res.status(401).send('failed creating user');
-      });
-  };
-  return { register, login, getUsers };
+
+  return { register, login };
 };
