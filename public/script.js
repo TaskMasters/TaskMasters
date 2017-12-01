@@ -50,7 +50,8 @@ function logIn(e) {
         window.location.replace('/boards');
         console.log(token);
       } else {
-        console.log('Feil brukernavn eller passord');
+        document.getElementById('wrongCredentials').innerHTML =
+          'Wrong password or username';
       }
     })
     .catch(function(err) {

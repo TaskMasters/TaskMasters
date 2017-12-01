@@ -112,6 +112,7 @@ function renderList(list) {
 
   var submitButton = document.createElement('button');
   submitButton.className = 'button';
+  submitButton.id = 'addButton';
   submitButton.onclick = createTodo(list.id);
   submitButton.type = 'submit';
   var node = document.createTextNode('ADD');
@@ -120,6 +121,7 @@ function renderList(list) {
 
   var deleteButton = document.createElement('button');
   deleteButton.className = 'button';
+  deleteButton.id = 'deleteButton';
   deleteButton.onclick = deleteList(list.id);
   var node = document.createTextNode('DELETE LIST');
   deleteButton.appendChild(node);

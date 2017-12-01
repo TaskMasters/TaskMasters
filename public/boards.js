@@ -91,6 +91,7 @@ function addBoards(boards) {
 
     var deleteButton = document.createElement('button');
     deleteButton.className = 'button';
+    deleteButton.id = 'deleteButton';
     deleteButton.onclick = deleteBoard(boards[i].id);
     var node = document.createTextNode('DELETE BOARD');
     deleteButton.appendChild(node);
