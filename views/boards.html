@@ -20,9 +20,11 @@
   </div>
 
   <div class="newBoard">
-    <input type="text" id="title" name="title" placeholder="Enter Title"><br>
-    <input type="text" id="description" name="description" placeholder="Enter Description"><br>
-    <button type="button" class="button" onclick="return createBoard(event)">CREATE BOARD</button>
+    <form onsubmit="return createBoard(event)">
+      <input type="text" id="title" name="title" placeholder="Enter Title"><br>
+      <input type="text" id="description" name="description" placeholder="Enter Description"><br>
+      <button type="submit" class="button" onclick="return createBoard(event)">CREATE BOARD</button>
+    </form>
   </div>
 
   <img id="background" src="/background.jpg" alt="city View">
